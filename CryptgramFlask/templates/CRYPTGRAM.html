@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRYPTGRAM: share freely, securely</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Consolas", "Courier New", monospace;
+            background-color: #000;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            margin-bottom: 20px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            }
+
+            to {
+                text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+        }
+
+        .cmd-box {
+            background-color: #111;
+            border: 2px solid rgba(0, 255, 0, 0.5);
+            border-radius: 5px;
+            padding: 20px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            max-width: 800px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .post {
+            margin-bottom: 15px;
+        }
+
+        .username {
+            color: #888;
+            font-weight: bold;
+        }
+
+        .content {
+            color: #ccc;
+            margin: 5px 0;
+        }
+
+        .timestamp {
+            color: #555;
+            font-size: 0.9em;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">CRYPTGRAM: share freely, securely.</div>
+
+        <div class="cmd-box">
+            {% for post in posts %}
+            <div class="post">
+                <div class="username">@{{ post['username'] }}</div>
+                <div class="content">{{ post['post'] }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
